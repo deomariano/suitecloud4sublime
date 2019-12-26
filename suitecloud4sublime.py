@@ -55,22 +55,22 @@ class GenerateWaCommand(sublime_plugin.TextCommand):
 
 class PreferencesCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		self.view.window().open_file("credentials.sublime-settings")
+		self.view.window().open_file("config.sublime-settings")
 
 class UploadFileCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		credsFile = sublime.load_resource("Packages/suitecloud4sublime/credentials.sublime-settings")
-		credsObj = sublime.decode_value(credsFile)
+		configFile = sublime.load_resource("Packages/config.sublime-settings")
+		configObj = sublime.decode_value(configFile)
 		fileData = self.view.substr(sublime.Region(0, self.view.size()))
 		fileName = ntpath.basename(self.view.file_name())
 
 		if fileName:
 			try:
-				req = Request(credsObj["restlet"])
-				req.add_header("Authorization", "NLAuth nlauth_email=%s, nlauth_signature=%s, nlauth_account=%s, nlauth_role=%s" % (credsObj["email_address"], credsObj["password"], credsObj["account"], credsObj["role"]))
+				req = Request(configObj["restlet"])
+				req.add_header("Authorization", "NLAuth nlauth_email=%s, nlauth_signature=%s, nlauth_account=%s, nlauth_role=%s" % (configObj["email_address"], configObj["password"], configObj["account"], configObj["role"]))
 				req.add_header("Content-Type", "application/json")
 				req.data = json.dumps({
-					"folder": credsObj["folder"],
+					"folder": configObj["folder"],
 					"filename": fileName,
 					"fileContent": fileData,
 					"action": "upload"
@@ -89,18 +89,18 @@ class UploadFileCommand(sublime_plugin.TextCommand):
 
 class DownloadFileCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		credsFile = sublime.load_resource("Packages/suitecloud4sublime/credentials.sublime-settings")
-		credsObj = sublime.decode_value(credsFile)
+		configFile = sublime.load_resource("Packages/config.sublime-settings")
+		configObj = sublime.decode_value(configFile)
 		region = sublime.Region(0, self.view.size())
 		fileName = ntpath.basename(self.view.file_name())
 
 		if fileName:
 			try:
-				req = Request(credsObj["restlet"])
-				req.add_header("Authorization", "NLAuth nlauth_email=%s, nlauth_signature=%s, nlauth_account=%s, nlauth_role=%s" % (credsObj["email_address"], credsObj["password"], credsObj["account"], credsObj["role"]))
+				req = Request(configObj["restlet"])
+				req.add_header("Authorization", "NLAuth nlauth_email=%s, nlauth_signature=%s, nlauth_account=%s, nlauth_role=%s" % (configObj["email_address"], configObj["password"], configObj["account"], configObj["role"]))
 				req.add_header("Content-Type", "application/json")
 				req.data = json.dumps({
-					"folder": credsObj["folder"],
+					"folder": configObj["folder"],
 					"filename": fileName,
 					"action": "download"
 				}).encode("utf-8")
@@ -123,12 +123,12 @@ class DownloadFileCommand(sublime_plugin.TextCommand):
 
 class TestIntegrationCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		credsFile = sublime.load_resource("Packages/suitecloud4sublime/credentials.sublime-settings")
-		credsObj = sublime.decode_value(credsFile)
+		configFile = sublime.load_resource("Packages/config.sublime-settings")
+		configObj = sublime.decode_value(configFile)
 
 		try:
-			req = Request(credsObj["restlet"])
-			req.add_header("Authorization", "NLAuth nlauth_email=%s, nlauth_signature=%s, nlauth_account=%s, nlauth_role=%s" % (credsObj["email_address"], credsObj["password"], credsObj["account"], credsObj["role"]))
+			req = Request(configObj["restlet"])
+			req.add_header("Authorization", "NLAuth nlauth_email=%s, nlauth_signature=%s, nlauth_account=%s, nlauth_role=%s" % (configObj["email_address"], configObj["password"], configObj["account"], configObj["role"]))
 			req.add_header("Content-Type", "application/json")
 			response = urlopen(req).read().decode("utf-8")
 			responseObj = json.loads(response)

@@ -51,10 +51,6 @@
                 {
                     "caption": "Download Latest Version of this File",
                     "command": "download_file"
-                },
-                {
-                    "caption": "Compare This File and Latest Version",
-                    "command": "compare_files"
                 }
             ]
         },
@@ -63,7 +59,7 @@
             "command": "test_integration"
         },
         {
-            "caption": "Setup Credentials",
+            "caption": "Configure...",
             "command": "preferences"
         }
     ]
