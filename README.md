@@ -6,7 +6,7 @@ suitecloud4sublime is a Sublime Text 3 plugin for made to easily manage files fo
 
 ## Pre-requisites
 
-The suitecloud4sublime plugin relies on a RESTlet residing in the target account's destination. Install the suitecloud4sublime Bundle in NetSuite (Bundle ID: xxx)
+The suitecloud4sublime plugin relies on a RESTlet residing in the target account's destination. Install the suitecloud4sublime Bundle in NetSuite (Bundle ID: 312535)
 
 ## Supported functionalities
 * Generate SuiteScript 2.0 templates.
