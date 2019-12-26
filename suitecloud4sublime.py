@@ -11,47 +11,47 @@ except ImportError:
 class GenerateUeCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		n = self.view.window().new_file()
-		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/KD_UE_Script.js").replace('\r\n', '\n'))
+		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/ue.template").replace('\r\n', '\n'))
 
 class GenerateCsCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		n = self.view.window().new_file()
-		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/KD_CS_Script.js").replace('\r\n', '\n'))
+		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/cs.template").replace('\r\n', '\n'))
 
 class GenerateSlCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		n = self.view.window().new_file()
-		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/KD_SL_Script.js").replace('\r\n', '\n'))
+		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/sl.template").replace('\r\n', '\n'))
 
 class GenerateRlCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		n = self.view.window().new_file()
-		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/KD_RL_Script.js").replace('\r\n', '\n'))
+		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/rl.template").replace('\r\n', '\n'))
 
 class GenerateMrCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		n = self.view.window().new_file()
-		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/KD_MR_Script.js").replace('\r\n', '\n'))
+		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/mr.template").replace('\r\n', '\n'))
 
 class GenerateSsCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		n = self.view.window().new_file()
-		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/KD_SS_Script.js").replace('\r\n', '\n'))
+		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/ss.template").replace('\r\n', '\n'))
 
 class GenerateMuCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		n = self.view.window().new_file()
-		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/KD_MU_Script.js").replace('\r\n', '\n'))
+		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/mm.template").replace('\r\n', '\n'))
 
 class GeneratePlCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		n = self.view.window().new_file()
-		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/KD_PL_Script.js").replace('\r\n', '\n'))
+		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/pl.template").replace('\r\n', '\n'))
 
 class GenerateWaCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		n = self.view.window().new_file()
-		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/KD_WA_Script.js").replace('\r\n', '\n'))
+		n.insert(edit, 0, sublime.load_resource("Packages/suitecloud4sublime/wa.template").replace('\r\n', '\n'))
 
 class PreferencesCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
