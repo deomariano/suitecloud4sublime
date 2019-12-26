@@ -1,1 +1,40 @@
 # suitecloud4sublime
+
+The unofficial SuiteCloud plugin for Sublime Text 3.
+
+suitecloud4sublime is a Sublime Text 3 plugin for made to easily manage files for SuiteScript projects. Only supports Windows for now.
+
+## Pre-requisites
+
+The suitecloud4sublime plugin relies on a RESTlet residing in the target account's destination. Install the suitecloud4sublime Bundle in NetSuite (Bundle ID: xxx)
+
+## Supported functionalities
+* Generate SuiteScript 2.0 templates.
+* Upload File to NetSuite
+* Download File from NetSuite
+* (Planned) Compare local and server version of file
+
+## Setup
+1. Clone suitecloud4sublime repo to "C:/Users/*username*/AppData/Roaming/Sublime Text 3/Packages/suitecloud4sublime" where *username* is your PC's username.
+2. Update config.sublime-settings with appropriate details from your account.
+	* email_address - NetSuite Email Address
+	* password - NetSuite Password
+	* role - NetSuite Role
+	* account - NetSuite Account
+	* consumer_key - Consumer Key from NetSuite
+	* consumer_secret - Consumer Secret from NetSuite
+	* token - Token from NetSuite
+	* token_secret - Token Secret from NetSuite
+	* application_id - Application ID from NetSuite
+	* restlet - RESTlet URL from bundle installation
+	* folder - Kodella, LLC or any folder under SuiteScripts
+
+3. Update suitecloud4sublime.py file references to config.sublime-settings from Packages/config.sublime-settings to Packages/suitecloud4sublime/config.sublime-settings.
+4. SuiteCloud 
+
+## What's not supported?
+* Other platforms aside from Windows not supported.
+* Token-Based Authentication not yet supported.
+
+## License
+[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
