@@ -16,7 +16,7 @@ The suitecloud4sublime plugin relies on a RESTlet residing in the target account
 
 ## Setup
 1. Clone suitecloud4sublime repo to "C:/Users/*username*/AppData/Roaming/Sublime Text 3/Packages/suitecloud4sublime" where *username* is your PC's username.
-2. Update config.sublime-settings with appropriate details from your account.
+2. Update config.sublime-settings with appropriate details from your account through any of the two ways: 1) Directly editing config.sublime-settings; or 2) Navigating to SuiteCloud > Configure...
 	* email_address - NetSuite Email Address
 	* password - NetSuite Password
 	* role - NetSuite Role
@@ -30,7 +30,7 @@ The suitecloud4sublime plugin relies on a RESTlet residing in the target account
 	* folder - Kodella, LLC or any folder under SuiteScripts
 
 3. Update suitecloud4sublime.py file references to config.sublime-settings from Packages/config.sublime-settings to Packages/suitecloud4sublime/config.sublime-settings.
-4. SuiteCloud 
+4. Test Integration through any of two ways: 1) Under SuiteCloud Menu, click Test Integration; or 2) Right-click on any Sublime Text 3 view, select SuiteCloud and click Test Integration.
 
 ## What's not supported?
 * Other platforms aside from Windows not supported.
