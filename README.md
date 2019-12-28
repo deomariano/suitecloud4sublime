@@ -21,11 +21,11 @@ The suitecloud4sublime plugin relies on a RESTlet residing in the target account
 	* password - NetSuite Password
 	* role - NetSuite Role
 	* account - NetSuite Account
-	* consumer_key - Consumer Key from NetSuite
-	* consumer_secret - Consumer Secret from NetSuite
-	* token - Token from NetSuite
-	* token_secret - Token Secret from NetSuite
-	* application_id - Application ID from NetSuite
+	* consumer_key - Consumer Key from NetSuite (not needed for now)
+	* consumer_secret - Consumer Secret from NetSuite (not needed for now)
+	* token - Token from NetSuite (not needed for now)
+	* token_secret - Token Secret from NetSuite (not needed for now)
+	* application_id - Application ID from NetSuite (not needed for now)
 	* restlet - RESTlet URL from bundle installation
 	* folder - Kodella, LLC or any folder under SuiteScripts
 
