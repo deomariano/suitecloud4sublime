@@ -11,6 +11,11 @@ except ImportError:
 
 configSettings = sublime.load_settings("config.sublime-settings")
 
+def validateConfigSettings():
+	if not (configSettings.get("email_address") or configSettings.get("password") or configSettings.get("role") or configSettings.get("account") or configSettings.get("restlet") or configSettings.get("folder")):
+		sublime.error_message("Please modify config.sublime-settings first.\nYou can access the config.sublime-settings file through\n\"Right-click > SuiteCloud > Configure...\" or \"SuiteCloud > Configure...\"")
+		raise Exception("ConfigurationNotDoneError")
+
 class GenerateUeCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		n = self.view.window().new_file()
@@ -71,6 +76,7 @@ class PreferencesCommand(sublime_plugin.TextCommand):
 
 class UploadFileCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
+		validateConfigSettings()
 		if configSettings.get("savefilebeforeupload"): 
 			self.view.run_command("save")
 
@@ -100,6 +106,7 @@ class UploadFileCommand(sublime_plugin.TextCommand):
 
 class DownloadFileCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
+		validateConfigSettings()
 		region = sublime.Region(0, self.view.size())
 		fileName = ntpath.basename(self.view.file_name())
 
@@ -129,6 +136,7 @@ class DownloadFileCommand(sublime_plugin.TextCommand):
 
 class CompareFilesCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
+		validateConfigSettings()
 		thisFileUrl = self.view.file_name()
 		fileName = ntpath.basename(self.view.file_name())
 		otherFileView = self.view.window().open_file(dirname(realpath(__file__)) + "\\tempfile")
@@ -177,6 +185,7 @@ class CompareFilesCommand(sublime_plugin.TextCommand):
 
 class TestIntegrationCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
+		validateConfigSettings()
 		try:
 			req = Request(configSettings.get("restlet"))
 			req.add_header("Authorization", "NLAuth nlauth_email=%s, nlauth_signature=%s, nlauth_account=%s, nlauth_role=%s" % (configSettings.get("email_address"), configSettings.get("password"), configSettings.get("account"), configSettings.get("role")))

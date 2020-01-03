@@ -45,6 +45,10 @@
             "caption": "File Management",
             "children": [
                 {
+                    "caption": "Download Folder",
+                    "command": "download_folder"
+                },
+                {
                     "caption": "Upload This File",
                     "command": "upload_file"
                 },

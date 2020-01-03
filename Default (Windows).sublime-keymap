@@ -1,0 +1,14 @@
+[
+	{
+		"keys": ["ctrl+alt+shift+u"],
+		"command": "upload_file"
+	},
+	{
+		"keys": ["ctrl+alt+shift+d"],
+		"command": "download_file"
+	},
+	{
+		"keys": ["ctrl+alt+shift+c"],
+		"command": "preferences"
+	}
+]
