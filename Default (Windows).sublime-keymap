@@ -1,14 +1,89 @@
 [
 	{
-		"keys": ["ctrl+alt+shift+u"],
+		"keys": ["alt+up"],
 		"command": "upload_file"
 	},
 	{
-		"keys": ["ctrl+alt+shift+d"],
+		"keys": ["alt+down"],
 		"command": "download_file"
 	},
 	{
-		"keys": ["ctrl+alt+shift+c"],
+		"keys": ["alt+home"],
 		"command": "preferences"
+	},
+	{
+		"keys": ["alt+right"],
+		"command": "compare_files"
+	},
+	{
+		"keys": ["alt+keypad1"],
+		"command": "generate_file",
+		"args": {
+			"template" : "ue.template"
+		}
+	},
+	{
+		"keys": ["alt+keypad2"],
+		"command": "generate_file",
+		"args": {
+			"template" : "cs.template"
+		}
+	},
+	{
+		"keys": ["alt+keypad3"],
+		"command": "generate_file",
+		"args": {
+			"template" : "sl.template"
+		}
+	},
+	{
+		"keys": ["alt+keypad4"],
+		"command": "generate_file",
+		"args": {
+			"template" : "rl.template"
+		}
+	},
+	{
+		"keys": ["alt+keypad5"],
+		"command": "generate_file",
+		"args": {
+			"template" : "mr.template"
+		}
+	},
+	{
+		"keys": ["alt+keypad6"],
+		"command": "generate_file",
+		"args": {
+			"template" : "ss.template"
+		}
+	},
+	{
+		"keys": ["alt+keypad7"],
+		"command": "generate_file",
+		"args": {
+			"template" : "mu.template"
+		}
+	},
+	{
+		"keys": ["alt+keypad8"],
+		"command": "generate_file",
+		"args": {
+			"template" : "pl.template"
+		}
+	},
+	{
+		"keys": ["alt+keypad9"],
+		"command": "generate_file",
+		"args": {
+			"template" : "wa.template"
+		}
+	},
+	{
+		"keys": ["alt+keypad0"],
+		"command": "update_header"
+	},
+	{
+		"keys": ["alt+end"],
+		"command": "test_integration"
 	}
 ]

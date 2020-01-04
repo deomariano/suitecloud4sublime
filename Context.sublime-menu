@@ -2,42 +2,74 @@
     "id": "suitecloudIDE",
     "caption": "SuiteCloud",
     "children": [{
-            "caption": "Generate SuiteScript File",
-            "children": [{
+            "caption": "Templates",
+            "children": [
+                {
                     "caption": "User Event",
-                    "command": "generate_ue"
+                    "command": "generate_file",
+                    "args": {
+                        "template" : "ue.template"
+                    }
                 },
                 {
                     "caption": "Client",
-                    "command": "generate_cs"
+                    "command": "generate_file",
+                    "args": {
+                        "template": "cs.template"
+                    }
                 },
                 {
                     "caption": "Suitelet",
-                    "command": "generate_sl"
+                    "command": "generate_file",
+                    "args": {
+                        "template": "sl.template"
+                    }
                 },
                 {
                     "caption": "RESTlet",
-                    "command": "generate_rl"
+                    "command": "generate_file",
+                    "args": {
+                        "template": "rl.template"
+                    }
                 },
                 {
                     "caption": "Map/Reduce",
-                    "command": "generate_mr"
+                    "command": "generate_file",
+                    "args": {
+                        "template": "mr.template"
+                    }
                 },
                 {
                     "caption": "Scheduled",
-                    "command": "generate_ss"
+                    "command": "generate_file",
+                    "args": {
+                        "template": "ss.template"
+                    }
                 },
                 {
                     "caption": "Mass Update",
-                    "command": "generate_mu"
+                    "command": "generate_file",
+                    "args": {
+                        "template": "mu.template"
+                    }
                 },
                 {
                     "caption": "Portlet",
-                    "command": "generate_pl"
+                    "command": "generate_file",
+                    "args": {
+                        "template": "pl.template"
+                    }
                 },
                 {
                     "caption": "Workflow Action",
-                    "command": "generate_wa"
+                    "command": "generate_file",
+                    "args": {
+                        "template": "wa.template"
+                    }
+                },
+                {
+                    "caption": "Update Header File...",
+                    "command": "update_header"
                 }
             ]
         },

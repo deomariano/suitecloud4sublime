@@ -12,10 +12,10 @@ The suitecloud4sublime plugin relies on a RESTlet residing in the target account
 * Generate SuiteScript 2.0 templates.
 * Upload File to NetSuite
 * Download File from NetSuite
-* (Planned) Compare local and server version of file
+* Compare local and server version of file
 
 ## Setup
-1. Clone suitecloud4sublime repo to "C:/Users/*username*/AppData/Roaming/Sublime Text 3/Packages/suitecloud4sublime" where *username* is your PC's username.
+1. Clone this repo to "C:/Users/*username*/AppData/Roaming/Sublime Text 3/Packages" where *username* is your PC's username.
 2. Update config.sublime-settings with appropriate details from your account through any of the two ways: 1) Directly editing config.sublime-settings; or 2) Navigating to SuiteCloud > Configure...
 	* email_address - NetSuite Email Address
 	* password - NetSuite Password

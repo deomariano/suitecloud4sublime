@@ -2,52 +2,80 @@
     "id": "suitecloudIDE",
     "caption": "SuiteCloud",
     "children": [{
-            "caption": "Generate SuiteScript File",
-            "children": [{
-                    "caption": "User Event",
-                    "command": "generate_ue"
+            "caption": "Templates",
+            "children": [
+                {
+                    "caption": "Generate User Event Script",
+                    "command": "generate_file",
+                    "args": {
+                        "template" : "ue.template"
+                    }
                 },
                 {
-                    "caption": "Client",
-                    "command": "generate_cs"
+                    "caption": "Generate Client Script",
+                    "command": "generate_file",
+                    "args": {
+                        "template": "cs.template"
+                    }
                 },
                 {
-                    "caption": "Suitelet",
-                    "command": "generate_sl"
+                    "caption": "Generate Suitelet Script",
+                    "command": "generate_file",
+                    "args": {
+                        "template": "sl.template"
+                    }
                 },
                 {
-                    "caption": "RESTlet",
-                    "command": "generate_rl"
+                    "caption": "Generate RESTlet Script",
+                    "command": "generate_file",
+                    "args": {
+                        "template": "rl.template"
+                    }
                 },
                 {
-                    "caption": "Map/Reduce",
-                    "command": "generate_mr"
+                    "caption": "Generate Map/Reduce Script",
+                    "command": "generate_file",
+                    "args": {
+                        "template": "mr.template"
+                    }
                 },
                 {
-                    "caption": "Scheduled",
-                    "command": "generate_ss"
+                    "caption": "Generate Scheduled Script",
+                    "command": "generate_file",
+                    "args": {
+                        "template": "ss.template"
+                    }
                 },
                 {
-                    "caption": "Mass Update",
-                    "command": "generate_mu"
+                    "caption": "Generate Mass Update Script",
+                    "command": "generate_file",
+                    "args": {
+                        "template": "mu.template"
+                    }
                 },
                 {
-                    "caption": "Portlet",
-                    "command": "generate_pl"
+                    "caption": "Generate Portlet Script",
+                    "command": "generate_file",
+                    "args": {
+                        "template": "pl.template"
+                    }
                 },
                 {
-                    "caption": "Workflow Action",
-                    "command": "generate_wa"
+                    "caption": "Generate Workflow Action Script",
+                    "command": "generate_file",
+                    "args": {
+                        "template": "wa.template"
+                    }
+                },
+                {
+                    "caption": "Update Header Template...",
+                    "command": "update_header"
                 }
             ]
         },
         {
             "caption": "File Management",
             "children": [
-                {
-                    "caption": "Download Folder",
-                    "command": "download_folder"
-                },
                 {
                     "caption": "Upload This File",
                     "command": "upload_file"

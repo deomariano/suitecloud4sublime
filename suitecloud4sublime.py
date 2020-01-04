@@ -16,59 +16,17 @@ def validateConfigSettings():
 		sublime.error_message("Please modify config.sublime-settings first.\nYou can access the config.sublime-settings file through\n\"Right-click > SuiteCloud > Configure...\" or \"SuiteCloud > Configure...\"")
 		raise Exception("ConfigurationNotDoneError")
 
-class GenerateUeCommand(sublime_plugin.TextCommand):
-	def run(self, edit):
+class GenerateFileCommand(sublime_plugin.TextCommand):
+	def run(self, edit, template):
 		n = self.view.window().new_file()
-		p = sublime.find_resources("ue.template")
-		n.insert(edit, 0, sublime.load_resource(p[0]).replace('\r\n', '\n'))
+		h = sublime.find_resources("header.template")
+		p = sublime.find_resources(template)
+		content = sublime.load_resource(h[0]).replace('\r\n', '\n') + sublime.load_resource(p[0]).replace('\r\n', '\n')
+		n.insert(edit, 0, content)
 
-class GenerateCsCommand(sublime_plugin.TextCommand):
+class UpdateHeaderCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		n = self.view.window().new_file()
-		p = sublime.find_resources("cs.template")
-		n.insert(edit, 0, sublime.load_resource(p[0]).replace('\r\n', '\n'))
-
-class GenerateSlCommand(sublime_plugin.TextCommand):
-	def run(self, edit):
-		n = self.view.window().new_file()
-		p = sublime.find_resources("sl.template")
-		n.insert(edit, 0, sublime.load_resource(p[0]).replace('\r\n', '\n'))
-
-class GenerateRlCommand(sublime_plugin.TextCommand):
-	def run(self, edit):
-		n = self.view.window().new_file()
-		p = sublime.find_resources("rl.template")
-		n.insert(edit, 0, sublime.load_resource(p[0]).replace('\r\n', '\n'))
-
-class GenerateMrCommand(sublime_plugin.TextCommand):
-	def run(self, edit):
-		n = self.view.window().new_file()
-		p = sublime.find_resources("mr.template")
-		n.insert(edit, 0, sublime.load_resource(p[0]).replace('\r\n', '\n'))
-
-class GenerateSsCommand(sublime_plugin.TextCommand):
-	def run(self, edit):
-		n = self.view.window().new_file()
-		p = sublime.find_resources("ss.template")
-		n.insert(edit, 0, sublime.load_resource(p[0]).replace('\r\n', '\n'))
-
-class GenerateMuCommand(sublime_plugin.TextCommand):
-	def run(self, edit):
-		n = self.view.window().new_file()
-		p = sublime.find_resources("mu.template")
-		n.insert(edit, 0, sublime.load_resource(p[0]).replace('\r\n', '\n'))
-
-class GeneratePlCommand(sublime_plugin.TextCommand):
-	def run(self, edit):
-		n = self.view.window().new_file()
-		p = sublime.find_resources("pl.template")
-		n.insert(edit, 0, sublime.load_resource(p[0]).replace('\r\n', '\n'))
-
-class GenerateWaCommand(sublime_plugin.TextCommand):
-	def run(self, edit):
-		n = self.view.window().new_file()
-		p = sublime.find_resources("wa.template")
-		n.insert(edit, 0, sublime.load_resource(p[0]).replace('\r\n', '\n'))
+		self.view.window().open_file("header.template")
 
 class PreferencesCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
@@ -181,7 +139,6 @@ class CompareFilesCommand(sublime_plugin.TextCommand):
 				sublime.error_message("Compare Failed due to an unexpected error! :(")
 		else:
 			sublime.error_message("Please save the file first.")
-
 
 class TestIntegrationCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
