@@ -12,10 +12,6 @@
 		"command": "preferences"
 	},
 	{
-		"keys": ["alt+right"],
-		"command": "compare_files"
-	},
-	{
 		"keys": ["alt+keypad1"],
 		"command": "generate_file",
 		"args": {

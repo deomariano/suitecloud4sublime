@@ -83,10 +83,6 @@
                 {
                     "caption": "Download Latest Version of this File",
                     "command": "download_file"
-                },
-                {
-                    "caption": "Compare Local File to Server Version",
-                    "command": "compare_files"
                 }
             ]
         },
