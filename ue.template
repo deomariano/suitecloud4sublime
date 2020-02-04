@@ -14,11 +14,11 @@ define(['N/record'], function(record) {
 
     }
 
-    function beforeLoad(context) {
+    function beforeSubmit(context) {
 
     }
 
-    function beforeLoad(context) {
+    function afterSubmit(context) {
 
     }
 

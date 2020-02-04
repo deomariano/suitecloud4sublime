@@ -22,7 +22,7 @@ define(['N/record'], function(record) {
 
     }
 
-    function delete(context) {
+    function _delete(context) {
 
     }
 
@@ -30,7 +30,7 @@ define(['N/record'], function(record) {
         get: get,
         post: post,
         put: put,
-        delete: delete
+        delete: _delete
     }
 
 })
