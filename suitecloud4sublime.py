@@ -14,7 +14,7 @@ configSettings = sublime.load_settings("config.sublime-settings")
 def validateConfigSettings():
 	if not (configSettings.get("email_address") or configSettings.get("password") or configSettings.get("role") or configSettings.get("account") or configSettings.get("restlet") or configSettings.get("folder")):
 		sublime.error_message("Please modify config.sublime-settings first.\nYou can access the config.sublime-settings file through\n\"Right-click > SuiteCloud > Configure...\" and \"SuiteCloud > Configure...\"")
-		raise Exception("ConfigurationNotDoneError")
+		
 
 class GenerateFileCommand(sublime_plugin.TextCommand):
 	def run(self, edit, template):
@@ -54,7 +54,8 @@ class UploadFileCommand(sublime_plugin.TextCommand):
 				}).encode("utf-8")
 				response = urlopen(req).read().decode("utf-8")
 				responseObj = json.loads(response)
-				sublime.message_dialog(responseObj["message"])
+				if configSettings.get("enablealerts"): 
+					sublime.message_dialog(responseObj["message"])
 			except TypeError as err: 
 				sublime.error_message("Upload Failed: \n" + str(err))
 			except:
