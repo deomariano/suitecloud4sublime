@@ -6,5 +6,5 @@
 	"restlet": "",
 	"folder": "",
 	"savefilebeforeupload": true,
-	"enablealerts": false
+	"enablealerts": true
 }

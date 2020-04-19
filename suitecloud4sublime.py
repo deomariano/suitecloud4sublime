@@ -9,11 +9,10 @@ try:
 except ImportError:
     from urllib2 import Request, urlopen
 
-configSettings = sublime.load_settings("config.sublime-settings")
-
 def validateConfigSettings():
+	configSettings = sublime.load_settings("suitecloud4sublime.sublime-settings")
 	if not (configSettings.get("email_address") or configSettings.get("password") or configSettings.get("role") or configSettings.get("account") or configSettings.get("restlet") or configSettings.get("folder")):
-		sublime.error_message("Please modify config.sublime-settings first.\nYou can access the config.sublime-settings file through\n\"Right-click > SuiteCloud > Configure...\" and \"SuiteCloud > Configure...\"")
+		sublime.error_message("Please modify suitecloud4sublime.sublime-settings first.\nYou can access the suitecloud4sublime.sublime-settings file through\n\"Right-click > SuiteCloud > Configure...\" and \"SuiteCloud > Configure...\"")
 		
 
 class GenerateFileCommand(sublime_plugin.TextCommand):
@@ -30,11 +29,11 @@ class UpdateHeaderCommand(sublime_plugin.TextCommand):
 
 class PreferencesCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		self.view.window().open_file("config.sublime-settings")
+		self.view.window().open_file("suitecloud4sublime.sublime-settings")
 
 class UploadFileCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		validateConfigSettings()
+		configSettings = sublime.load_settings("suitecloud4sublime.sublime-settings")
 		if configSettings.get("savefilebeforeupload"): 
 			self.view.run_command("save")
 
@@ -65,7 +64,7 @@ class UploadFileCommand(sublime_plugin.TextCommand):
 
 class DownloadFileCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		validateConfigSettings()
+		configSettings = sublime.load_settings("suitecloud4sublime.sublime-settings")
 		region = sublime.Region(0, self.view.size())
 		fileName = ntpath.basename(self.view.file_name())
 
@@ -95,7 +94,7 @@ class DownloadFileCommand(sublime_plugin.TextCommand):
 
 class CompareFilesCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		validateConfigSettings()
+		configSettings = sublime.load_settings("suitecloud4sublime.sublime-settings")
 		thisFileUrl = self.view.file_name()
 		fileName = ntpath.basename(self.view.file_name())
 		otherFileView = self.view.window().open_file(dirname(realpath(__file__)) + "\\tempfile")
@@ -131,7 +130,7 @@ class CompareFilesCommand(sublime_plugin.TextCommand):
 					else:
 						sublime.message_dialog(responseObj["message"])
 				else:
-					sublime.message_dialog("Please fix config.sublime-settings.")
+					sublime.message_dialog("Please fix suitecloud4sublime.sublime-settings.")
 					view.run_command("preferences")
 
 			except TypeError as err: 
@@ -143,15 +142,11 @@ class CompareFilesCommand(sublime_plugin.TextCommand):
 
 class TestIntegrationCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		validateConfigSettings()
-		try:
+			configSettings = sublime.load_settings("suitecloud4sublime.sublime-settings")
+			print(configSettings.get("restlet"))
 			req = Request(configSettings.get("restlet"))
 			req.add_header("Authorization", "NLAuth nlauth_email=%s, nlauth_signature=%s, nlauth_account=%s, nlauth_role=%s" % (configSettings.get("email_address"), configSettings.get("password"), configSettings.get("account"), configSettings.get("role")))
 			req.add_header("Content-Type", "application/json")
 			response = urlopen(req).read().decode("utf-8")
 			responseObj = json.loads(response)
 			sublime.message_dialog(responseObj["message"])
-		except TypeError as err: 
-			sublime.error_message("Test Connection Failed: \n" + str(err))
-		except:
-			sublime.error_message("Test Connection Failed due to an unexpected error! :(")

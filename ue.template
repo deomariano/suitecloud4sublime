@@ -1,5 +1,5 @@
  *	Version		Date		Author		Remarks
- *	1.00					Kodella		Initial version
+ *	1.00					    		Initial version
  *	
  *	Description
  *	Script Description goes here.
@@ -10,15 +10,42 @@
  */
 define(['N/record'], function(record) {
 
-    function beforeLoad(context) {
+    /**
+     * Function definition to be triggered before record is loaded.
+     *
+     * @param {Object} scriptContext
+     * @param {Record} scriptContext.newRecord - New record
+     * @param {string} scriptContext.type - Trigger type
+     * @param {Form} scriptContext.form - Current form
+     * @Since 2015.2
+     */
+    function beforeLoad(scriptContext) {
 
     }
 
-    function beforeSubmit(context) {
+    /**
+     * Function definition to be triggered before record is loaded.
+     *
+     * @param {Object} scriptContext
+     * @param {Record} scriptContext.newRecord - New record
+     * @param {Record} scriptContext.oldRecord - Old record
+     * @param {string} scriptContext.type - Trigger type
+     * @Since 2015.2
+     */
+    function beforeSubmit(scriptContext) {
 
     }
 
-    function afterSubmit(context) {
+    /**
+     * Function definition to be triggered before record is loaded.
+     *
+     * @param {Object} scriptContext
+     * @param {Record} scriptContext.newRecord - New record
+     * @param {Record} scriptContext.oldRecord - Old record
+     * @param {string} scriptContext.type - Trigger type
+     * @Since 2015.2
+     */
+    function afterSubmit(scriptContext) {
 
     }
 
@@ -26,6 +53,6 @@ define(['N/record'], function(record) {
         beforeLoad: beforeLoad,
         beforeSubmit: beforeSubmit,
         afterSubmit: afterSubmit
-    }
+    };
     
 })

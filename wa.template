@@ -1,5 +1,5 @@
  *	Version		Date		Author		Remarks
- *	1.00					Kodella		Initial version
+ *	1.00								Initial version
  *	
  *	Description
  *	Script Description goes here.
@@ -10,12 +10,20 @@
  */
 define(['N/record'], function(record) {
 
-    function onAction(context) {
+    /**
+     * Definition of the Suitelet script trigger point.
+     *
+     * @param {Object} scriptContext
+     * @param {Record} scriptContext.newRecord - New record
+     * @param {Record} scriptContext.oldRecord - Old record
+     * @Since 2016.1
+     */
+    function onAction(scriptContext) {
 
     }
 
     return {
-        onAction: onAction
-    }
+        onAction : onAction
+    };
     
 })
